@@ -21,6 +21,8 @@ const TaskUser=await task.find({id_user:info.id_user});
 return {status:200,message:"tareas",body:TaskUser}
 
 }
+
+
 module.exports.updateTask=async (info)=>{
  
 const update=await task.findByIdAndUpdate(info.id_user,info)
