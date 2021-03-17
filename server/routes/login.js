@@ -4,7 +4,7 @@ const user =require('../helpers/user')
 
 const app = express();
 app.post('/', function (req, res) {
-    let info=req.query;
+    let info=JSON.parse(req.body.params);
     console.log(info)
   
     // Look for email coincidence
