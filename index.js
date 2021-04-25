@@ -2,13 +2,14 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const cors=require('cors');
+require('./server/database/db');
 
-
+//middlewares
 app.use(cors());
 app.use(express.json())
-app.use(require('./server/routes/index'));
 
-require('./server/database/db');
+
+//port
 process.env.PORT = process.env.PORT || 3000;
 
 app.get('/',function(req,res){
@@ -21,3 +22,5 @@ app.listen(process.env.PORT, ()=> {
     console.log("Escuchando en puerto 3000");
 })
 
+//routes
+app.use(require('./server/routes/index.js'));
